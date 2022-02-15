@@ -1,0 +1,40 @@
+baseURL: 'http://example.org/'
+languageCode: 'en-us'
+title: 'Development blog'
+theme: "hugo-PaperMod"
+
+params:
+  env: production 
+  defaultTheme: dark
+  disableThemeToggle: true
+  hideFooter: true
+  ShowCodeCopyButtons: true
+
+  homeInfoParams:
+    Title: A student's blog
+    Content: Come and follow me on my development journey
+
+  socialIcons: # optional
+    - name: "github"
+      url: "https://github.com/electron2302"
+    # - name: "cv"
+    #   url: "<link2>"
+    # - name: "serverfault"
+    #   url: "<link2>"
+    # - name: "dev"
+    #   url: "<link2>"
+
+menu:
+  main:
+    - identifier: Embeded
+      name: Embeded
+      url: /categories/Embeded/
+      weight: 1
+    - identifier: Infrastructure
+      name: Infrastructure
+      url: /categories/Infrastructure/
+      weight: 2
+    - identifier: legal
+      name: Legal
+      url: /legal/
+      weight: 3
