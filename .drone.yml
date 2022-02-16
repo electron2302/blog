@@ -3,16 +3,15 @@ type: docker
 
 steps:
 
-steps:
-- name: Version check
-  image: jguyomard/hugo-builder
+- name: get submodules
+  image: alpine/git
   commands:
-  - echo "Checking Hugo version."
-  - hugo version
+  - git submodule update --init --recursive
 
-- name: Build 
+- name: Build with Hugo
   image: jguyomard/hugo-builder
   commands:
+  - hugo version
   - hugo --destination /drone/src/build
   - minify -r -o /drone/src/build /drone/src/build
 
