@@ -1,6 +1,10 @@
 kind: pipeline
 type: docker
 
+trigger:
+  branch:
+    - main
+
 steps:
 
 - name: get submodules
@@ -13,10 +17,12 @@ steps:
   commands:
   - hugo version
   - hugo --destination /drone/src/build
-#  - minify -r -o /drone/src/build /drone/src/build
 
-- name: list 
-  image: alpine
-  commands:
-  - apk add --update tree
-  - tree
+- name: "Docker build & push"
+  image: plugins/docker
+  settings:
+    repo: electron2302/sart-blog
+    username: electron2302
+    password:
+      from_secret: dockerhub_password
+    dockerfile: Dockerfile

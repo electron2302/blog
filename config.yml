@@ -1,7 +1,11 @@
-baseURL: 'http://example.org/'
+baseURL: 'https://blog.sart.solutions/'
 languageCode: 'en-us'
 title: 'Development blog'
 theme: "hugo-PaperMod"
+
+minify:
+    disableXML: true
+    minifyOutput: true
 
 params:
   env: production 
