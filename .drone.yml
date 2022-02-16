@@ -19,5 +19,5 @@ steps:
 - name: list 
   image: alpine
   commands:
-  - apt-get install -y tree
+  - apk add --update tree
   - tree
