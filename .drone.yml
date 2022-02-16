@@ -1,0 +1,16 @@
+kind: pipeline
+type: docker
+
+steps:
+
+- name: build
+  image: plugins/hugo
+  settings:
+    hugo_version: 0.92.2
+    validate: true
+
+- name: list 
+  image: alpine
+  commands:
+  - apt-get install -y tree
+  - tree
