@@ -3,11 +3,18 @@ type: docker
 
 steps:
 
-- name: build
-  image: plugins/hugo
-  settings:
-    hugo_version: 0.92.2
-    validate: true
+steps:
+- name: Version check
+  image: jguyomard/hugo-builder
+  commands:
+  - echo "Checking Hugo version."
+  - hugo version
+
+- name: Build 
+  image: jguyomard/hugo-builder
+  commands:
+  - hugo --destination /drone/src/build
+  - minify -r -o /drone/src/build /drone/src/build
 
 - name: list 
   image: alpine
