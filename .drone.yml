@@ -9,11 +9,11 @@ steps:
   - git submodule update --init --recursive
 
 - name: Build with Hugo
-  image: jguyomard/hugo-builder
+  image: klakegg/hugo:0.92.1-alpine
   commands:
   - hugo version
   - hugo --destination /drone/src/build
-  - minify -r -o /drone/src/build /drone/src/build
+#  - minify -r -o /drone/src/build /drone/src/build
 
 - name: list 
   image: alpine
